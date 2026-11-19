@@ -87,8 +87,8 @@ end
 local function addLabel(model, character, mutation, income, priceText)
 	local gui = Instance.new("BillboardGui")
 	gui.Name = "Label"
-	gui.Size = UDim2.fromOffset(140, 64)
-	gui.StudsOffset = Vector3.new(0, 4.2, 0)
+	gui.Size = UDim2.fromOffset(120, 56)
+	gui.StudsOffset = Vector3.new(0, 4.2 + 1.2 * character.size, 0)
 	gui.AlwaysOnTop = true
 	gui.LightInfluence = 0
 
@@ -163,7 +163,15 @@ function BrainrotBuilder.build(character, mutation, income, priceText)
 	clicker.MaxActivationDistance = 32
 	clicker.Parent = body
 
-	model.PrimaryPart = body
+	-- The pivot must sit at the model's feet: PrimaryPart hijacks the pivot,
+	-- so a body PrimaryPart would put the model's middle at every PivotTo
+	-- target and sink the character into the floor. A tiny invisible root
+	-- part at the origin keeps feet on the ground instead.
+	local root = makePart("Root", Vector3.new(0.2, 0.2, 0.2), Color3.fromRGB(0, 0, 0))
+	root.Transparency = 1
+	root.Position = Vector3.new(0, 0, 0)
+	root.Parent = model
+	model.PrimaryPart = root
 	addLabel(model, character, mutation, income, priceText or "")
 	return model
 end

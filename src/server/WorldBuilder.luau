@@ -59,7 +59,7 @@ local function buildBase(parent, index, center)
 	-- A floating sign that BaseManager fills with the owner's name.
 	local sign = Instance.new("BillboardGui")
 	sign.Name = "BaseSign"
-	sign.Size = UDim2.fromOffset(160, 44)
+	sign.Size = UDim2.fromOffset(120, 32)
 	sign.StudsOffset = Vector3.new(0, 7, 0)
 	sign.AlwaysOnTop = true
 	local label = Instance.new("TextLabel")
@@ -107,10 +107,10 @@ function WorldBuilder.build()
 	place(sea, Vector3.new(0, 0.1, 0), island)
 
 	-- Central plaza: a round stage where the conveyor crosses.
-	local plaza = makePart("Plaza", Vector3.new(34, 0.6, 34), Color3.fromRGB(200, 190, 170), Enum.Material.Concrete, 0)
+	local plaza = makePart("Plaza", Vector3.new(0.6, 34, 34), Color3.fromRGB(200, 190, 170), Enum.Material.Concrete, 0)
 	plaza.Shape = Enum.PartType.Cylinder
-	plaza.CFrame = CFrame.new(0, 1.2, 0) * CFrame.Angles(0, 0, math.rad(90))
-	place(plaza, Vector3.new(0, 1.2, 0), island)
+	plaza.CFrame = CFrame.new(0, 0.95, 0) * CFrame.Angles(0, 0, math.rad(90))
+	place(plaza, Vector3.new(0, 0.95, 0), island)
 
 	-- The conveyor walkway the brainrots stroll down, south to north.
 	local path = makePart("ConveyorPath", Vector3.new(8, 0.3, 140), Color3.fromRGB(70, 70, 80), Enum.Material.Concrete)
