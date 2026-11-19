@@ -104,7 +104,7 @@ function WorldBuilder.build()
 	place(sand, Vector3.new(0, 0, 0), island)
 	local sea = makePart("Sea", Vector3.new(500, 1, 500), Color3.fromRGB(40, 140, 220), Enum.Material.Water, 0.25)
 	sea.CanCollide = false -- falling off the island drops you into the bay, not onto the water
-	place(sea, Vector3.new(0, -0.6, 0), island)
+	place(sea, Vector3.new(0, 0.1, 0), island)
 
 	-- Central plaza: a round stage where the conveyor crosses.
 	local plaza = makePart("Plaza", Vector3.new(34, 0.6, 34), Color3.fromRGB(200, 190, 170), Enum.Material.Concrete, 0)
