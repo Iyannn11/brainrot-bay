@@ -49,6 +49,13 @@ function StealSystem.trySteal(player, uid)
 	if not slot then
 		return
 	end
+	local label = record.model:FindFirstChild("Label", true)
+	if label then
+		local money = label:FindFirstChild("Money")
+		if money then
+			money.Text = "$" .. record.income .. "/s"
+		end
+	end
 	thief.stealCooldownUntil = os.time() + GameConfig.STEAL_COOLDOWN_SECONDS
 	Economy.notify(player, "You stole " .. record.character.name .. " from " .. victim.player.DisplayName .. "!")
 	Economy.notify(victim.player, player.DisplayName .. " stole your " .. record.character.name .. "!")

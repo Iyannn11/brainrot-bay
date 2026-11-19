@@ -36,6 +36,13 @@ function WaveEvent.claimWaveBrainrot(player, uid)
 	if not slot then
 		return
 	end
+	local label = record.model:FindFirstChild("Label", true)
+	if label then
+		local money = label:FindFirstChild("Money")
+		if money then
+			money.Text = "$" .. record.income .. "/s"
+		end
+	end
 	Economy.notify(player, "You caught the Ikan Ombak from the wave!")
 end
 
