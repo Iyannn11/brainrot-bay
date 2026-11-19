@@ -4,17 +4,17 @@
 
 local Players = game:GetService("Players")
 
-local GameState = require(script.Parent.GameState)
-local WorldBuilder = require(script.Parent.WorldBuilder)
-local BaseManager = require(script.Parent.BaseManager)
-local Economy = require(script.Parent.Economy)
-local StealSystem = require(script.Parent.StealSystem)
-local RebirthSystem = require(script.Parent.RebirthSystem)
-local BrainrotSpawner = require(script.Parent.BrainrotSpawner)
-local WaveEvent = require(script.Parent.WaveEvent)
-local DataStore = require(script.Parent.DataStore)
-local Leaderboard = require(script.Parent.Leaderboard)
-local Remotes = require(script.Parent.Remotes)
+local GameState = require(script.GameState)
+local WorldBuilder = require(script.WorldBuilder)
+local BaseManager = require(script.BaseManager)
+local Economy = require(script.Economy)
+local StealSystem = require(script.StealSystem)
+local RebirthSystem = require(script.RebirthSystem)
+local BrainrotSpawner = require(script.BrainrotSpawner)
+local WaveEvent = require(script.WaveEvent)
+local DataStore = require(script.DataStore)
+local Leaderboard = require(script.Leaderboard)
+local Remotes = require(script.Remotes)
 
 -- The island first: every system below reads WorldBuilder.layout.
 WorldBuilder.build()
